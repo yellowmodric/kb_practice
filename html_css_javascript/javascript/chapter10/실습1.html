@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="checkBalanceBtn" onclick="buttonClick()">잔액 조회</button>
+    <p id="balanceDisplay">잔액: ? 원</p>
+    <script>
+      let money = document.getElementById('balanceDisplay');
+      console.log(Math.floor(Math.random() * 100000));
+      function buttonClick() {
+        money.innerHTML = `잔액: ${Math.floor(
+          Math.random() * 1000000
+        ).toLocaleString()} 원`;
+      }
+    </script>
+  </body>
+</html>

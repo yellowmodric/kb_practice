@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="krwInput" placeholder="원화 입력" />
+    <p id="usdResult">달러(USD):</p>
+    <script>
+      let input = document.getElementById('krwInput');
+      let p = document.getElementById('usdResult');
+
+      input.addEventListener('input', () => {
+        p.innerHTML = `달러(USD): ${(input.value / 1300).toFixed(2)}`;
+      });
+    </script>
+  </body>
+</html>

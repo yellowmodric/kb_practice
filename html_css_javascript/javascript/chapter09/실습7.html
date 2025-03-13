@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let newSkills = {
+        7: '덩굴채찍',
+        10: '씨뿌리기',
+        16: '솔라빔',
+      };
+      let bulbasaur = { name: '이상해씨', level: 5, skills: ['몸통박치기'] };
+
+      function levelUp(skill) {
+        skill.level++;
+        console.log(`${skill.name}의 레벨이 ${skill.level}이 (가) 되었다!`);
+
+        for (i in newSkills) {
+          if (skill.level == i) {
+            bulbasaur.skills[newSkills[i]];
+            console.log(
+              `${skill.name}가 새로운 기술 '${newSkills[i]}'을(를) 배웠다!`
+            );
+          }
+        }
+      }
+
+      levelUp(bulbasaur);
+      levelUp(bulbasaur);
+      levelUp(bulbasaur);
+    </script>
+  </head>
+  <body></body>
+</html>

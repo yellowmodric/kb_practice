@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="newsInput" placeholder="금융 뉴스 입력" />
+    <button id="addNewsBtn">뉴스 추가</button>
+    <ul id="newsList"></ul>
+    <script>
+      let input = document.getElementById('newsInput');
+      let btn = document.getElementById('addNewsBtn');
+      let ul = document.getElementById('newsList');
+      const li = document.createElement('li');
+
+      btn.addEventListener('click', () => {
+        if (!input.value) {
+          alert('뉴스 내용을 입력하세요.');
+        } else {
+          ul.appendChild(li);
+          li.innerHTML = `${input.value}`;
+        }
+      });
+    </script>
+  </body>
+</html>
