@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>우리의 추억</h1>
+      <ul>
+        <li>처음 만난 날</li>
+        <li>함께 먹은 초밥</li>
+        <li>놀이공원에서 탄 롤러코스터</li>
+        <li>생일에 준 선물</li>
+        <li>처음 같이 본 영화</li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {};
+        },
+      }).mount('#app'); //항상 등장하는 코드
+    </script>
+  </body>
+</html>

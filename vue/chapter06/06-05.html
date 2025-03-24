@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .buttonColor {
+        background-color: aqua;
+        color: black;
+    }
+    .
+  </style>
+  <body>
+    /* 여러 개의 클래스를 배열로 묶어서 바인딩 가능 */
+    <div id="app">
+        <button class="staticBorder" :class="[myColor, ]"></button>
+        </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {};
+        },
+      }).mount('#app'); //항상 등장하는 코드
+    </script>
+  </body>
+</html>

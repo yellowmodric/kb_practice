@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>추천 고백 장소 TOP 3</h1>
+      <ul v-for="place in places" :key="place.no">
+        <li v-if="place.no <= 3">{{place.no}} {{place.name}}</li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            places: [
+              { no: 1, name: '한강공원' },
+              { no: 2, name: '루프탑 카페' },
+              { no: 3, name: '바닷가' },
+              { no: 4, name: '놀이공원' },
+              { no: 5, name: '분수광장' },
+              { no: 6, name: '한강공원' },
+            ],
+          };
+        },
+      }).mount('#app'); //항상 등장하는 코드
+    </script>
+  </body>
+</html>

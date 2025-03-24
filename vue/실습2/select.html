@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>마음 속 이유 (다중 선택):</h1>
+      <label v-for="reason in reasons" :key="reason.no">
+        <input type="checkbox" :value="reason.name" v-model="checkedReason" />
+        <span>{{reason.name}}</span>
+      </label>
+      <p v-if="checkedReason.length === 0">아직 이유를 고르지 않았어요!</p>
+      <p v-else>선택 항목 ({{checkedReason.length}}개): {{checkedReason.join(', ')}}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            reasons: [
+              { no: 1, name: '웃을 때 예뻐서', value: 'A' },
+              { no: 2, name: '마음이 따뜻해서', value: 'B' },
+              { no: 3, name: '유머감각이 박명수 닮아서', value: 'C' },
+              { no: 4, name: '노래 잘 불러서', value: 'D' },
+              { no: 5, name: '잘생겨서', value: 'E' },
+            ],
+            checkedReason: [],
+          };
+        },
+      }).mount('#app'); //항상 등장하는 코드
+    </script>
+  </body>
+</html>

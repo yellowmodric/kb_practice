@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>사용자목록</h1>
+      <span>정렬기준: </span>
+      <label v-for="sort in sorts" :key="sort.no">
+        <input type="radio" name="sort" v-model="sort.name"/>
+        <span>{{sort.name}}</span>
+      </label>
+      <table>
+        <thead>
+          <tr>
+            <th>{{sorts[0].name}}</th>
+            <th>{{sorts[1].name}}</th>
+            <th>{{sorts[2].name}}</th>
+            <th>{{sorts[3].name}}</th>
+          </tr>
+          <tbody>
+            <tr v-for="user in users" :key="user.id" v-if="sort.name === 'id">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.company}}</td>
+              </tr>
+          </tbody>          
+        </thead>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            sorts: [
+              { no: 1, name: 'id' },
+              { no: 2, name: 'name' },
+              { no: 3, name: 'username' },
+              { no: 4, name: 'phone' },
+            ],
+            users: [
+              {
+                id: 1,
+                name: '강민우',
+                username: 'Minwoo',
+                phone: '010-5546-5346',
+                company: 'baby',
+              },
+              {
+                id: 2,
+                name: '에릭',
+                username: 'Erick',
+                phone: '010-1234-8956',
+                company: 'brazil',
+              },
+              {
+                id: 3,
+                name: '정우영',
+                username: 'Wooyoung',
+                phone: '010-4894-2198',
+                company: 'catar',
+              },
+              {
+                id: 4,
+                name: '보야니치',
+                username: 'Bojanic',
+                phone: '010-7981-9844',
+                company: 'sweden',
+              },
+              {
+                id: 5,
+                name: '고승범',
+                username: 'Seunbeom',
+                phone: '010-5611-7863',
+                company: 'suwonFc',
+              },
+              {
+                id: 6,
+                name: '강상우',
+                username: 'Sangwoo',
+                phone: '010-6135-7981',
+                company: 'pohanghang',
+              },
+              {
+                id: 7,
+                name: '김영권',
+                username: 'Younggwon',
+                phone: '010-7981-4983',
+                company: 'japan',
+              },
+              {
+                id: 8,
+                name: '조현우',
+                username: 'Hyeonwoo',
+                phone: '010-3218-7981',
+                company: 'daegwooFc',
+              },
+              {
+                id: 9,
+                name: '이청용',
+                username: 'Chungyong',
+                phone: '010-7891-3547',
+                company: 'Chealsea',
+              },
+              {
+                id: 10,
+                name: '윤종규',
+                username: 'Jonggyu',
+                phone: '010-3574-7135',
+                company: 'fcseoul',
+              },
+            ],
+          };
+        },
+        computed: {
+            sortedData() {
+                return 
+            }
+        }
+      }).mount('#app'); //항상 등장하는 코드
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" placeholder="이름 입력" v-model="name" /><br />
+      <textarea placeholder="편지 내용" v-model="content"></textarea>
+      <h2>마음 속 이유 (2개 이상 선택하세요):</h2>
+      <label v-for="reason in reasons" :key="reason.no">
+        <input type="checkbox" v-model="warmReason" :value="reason.text" />
+        <span>{{reason.text}}</span> </label
+      ><br /><br />
+      <span>시간: </span>
+      <input type="number" v-model="time" />
+      <p id="p" v-if="name.length === 0">⚠️이름을 입력해주세요.</p>
+      <p id="p" v-if="content.length < 200">
+        ⚠️편지 내용을 200자 이상 작성해주세요. (현재 {{content.length}}자)
+      </p>
+      <p id="p" v-if="warmReason.length < 2">
+        ⚠️'신뢰', '배려', '따뜻함' 중 최소 2개를 선택해주세요.
+      </p>
+      <p id="p" v-if="time >= 18">⚠️현재 시간이 너무 늦었어요!(마감: 18시)</p>
+      <br />
+      <button
+        v-if="name.length && content.length && warmReason.length >= 2 && time < 18"
+      >
+        마지막 고백 결심하기
+      </button>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            reasons: [
+              { no: 1, text: '유머 감각' },
+              { no: 2, text: '신뢰' },
+              { no: 3, text: '배려' },
+              { no: 4, text: '따뜻함' },
+              { no: 5, text: '같이 있으면 편안함' },
+            ],
+            name: '',
+            content: '',
+            warmReason: [],
+            time: 0,
+          },
+          computed: {
+          selectedWarmReasons() {
+            // '신뢰', '배려', '따뜻함'만 필터링
+            return this.warmReason.filter(reason =>
+              ["신뢰", "배려", "따뜻함"].includes(reason)
+            );
+          },
+        }
+      }).mount('#app'); //항상 등장하는 코드
+    </script>
+  </body>
+</html>
