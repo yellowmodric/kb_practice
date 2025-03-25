@@ -47,16 +47,18 @@
       <p>추가샷: {{ selectedOptions.extraShot ? '추가함' : '없음' }}</p>
       <p>얼음 양: {{ selectedOptions.ice }}</p>
     </div>
+    <OrderSummary :selectedDrink="selectedDrink" />
   </div>
 </template>
 
 <script>
 import MenuList from './components/MenuList.vue';
 import DrinkOptions from './components/DrinkOptions.vue';
+import OrderSummary from './components/OrderSummary.vue';
 
 export default {
   name: 'App',
-  components: { MenuList, DrinkOptions },
+  components: { MenuList, DrinkOptions, OrderSummary },
   data() {
     return {
       menuList: [
