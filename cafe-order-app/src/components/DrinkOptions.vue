@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ selectedDrink }} 옵션 선택</h1>
+    <h1>{{ selectedDrink.name }} 옵션 선택</h1>
     <p>사이즈:</p>
     <label>
       <input type="radio" v-model="size" value="small" @change="emitOptions" />
